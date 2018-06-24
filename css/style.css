@@ -1,3 +1,20 @@
 body {
     text-align: center;
 }
+
+
+/* modal */
+
+.modal-container {
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 10px;
+    position: fixed;
+    width: 45%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: violet;
+}
