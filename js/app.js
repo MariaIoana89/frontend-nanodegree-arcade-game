@@ -73,6 +73,7 @@
                    break;
                case 'up':
                    this.update(this.y -= 60);
+                   break;
                case 'down':
                    this.update(this.y += 60);
                    break;
