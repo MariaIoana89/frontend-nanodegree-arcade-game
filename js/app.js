@@ -1,4 +1,5 @@
 const modal = document.querySelector('#modal');
+const closeBtn = document.querySelector('.close');
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y, speed) {
@@ -119,4 +120,15 @@ function showModal() {
 function resetGame() {
     player.x = 200;
     player.y = 400;
+}
+
+closeBtn.onclick() = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }

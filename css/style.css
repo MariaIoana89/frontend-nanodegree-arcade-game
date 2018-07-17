@@ -22,7 +22,6 @@ body {
 
 #modal {
     display: none;
-    margin: 0 auto;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -30,6 +29,7 @@ body {
     z-index: 1;
     background-color: violet;
     position: fixed;
+    overflow: auto;
 }
 
 #modal_container {
@@ -37,4 +37,11 @@ body {
     border-radius: 10px;
     width: 45%;
     border: 1px solid pink;
+    margin: auto;
+}
+
+.close {
+    color: black;
+    float: right;
+    font-size: 30px;
 }
