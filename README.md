@@ -1,6 +1,14 @@
-frontend-nanodegree-arcade-game
-===============================
+# Classic Arcade Game Clone
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+This is a game built with HTML, CSS and Javascript.
+You don't need any internet connection, you can play it offline. Please use the download button on the link of github.com or just visit it online to see the code.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+# Instructions
+This is the Arcade Game or how it is still called, an improved Frogger.
+You have a player that can move all four directions (up, down, left and right) and you have some bugs.
+The game is finished when you reach the top of the canvas.
+You have to skip the enemies (bugs) in order to get to the top. 
+If you touch a bug, the game restarts and the player is in the initial position.
+
+# About
+This project is built for Udacity course "Front End Net Developer".

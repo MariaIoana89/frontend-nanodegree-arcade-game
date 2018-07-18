@@ -118,9 +118,9 @@ function resetGame() {
     player.y = 400;
 }
 
-closeBtn.onclick() = function() {
+closeBtn.addEventListener('click', function() {
     modal.style.display = "none";
-}
+});
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
