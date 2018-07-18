@@ -40,7 +40,7 @@ class Enemy {
 }
 
 // Now write your own player class
-// This class requires an update(), render() and
+// This class requires a render() and
 // a handleInput() method.
 class Player {
     constructor(x, y) {
