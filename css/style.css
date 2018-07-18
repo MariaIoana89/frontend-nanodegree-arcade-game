@@ -27,7 +27,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: violet;
+    background-color: rgb(238, 130, 238, 0.6);
     position: fixed;
     overflow: auto;
 }
@@ -36,12 +36,16 @@ body {
     text-transform: uppercase;
     border-radius: 10px;
     width: 45%;
-    border: 1px solid pink;
+    border: 1px solid black;
     margin: auto;
+    background-color: rgb(255, 228, 196);
+    justify-content: center;
 }
 
-.close {
-    color: black;
+.closeBtn {
+    color: rgb(0, 0, 0);
     float: right;
     font-size: 30px;
+    background-color: gray;
+    cursor: pointer;
 }

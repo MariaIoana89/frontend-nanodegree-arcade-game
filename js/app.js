@@ -1,5 +1,5 @@
 const modal = document.querySelector('#modal');
-const closeBtn = document.querySelector('.close');
+const closeBtn = document.querySelector('.closeBtn');
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y, speed) {
@@ -55,7 +55,7 @@ class Player {
                 resetGame();
             }
             if (this.y >= 460) {
-                showModal();
+
                 resetGame();
             }
             if (this.x >= 460 || this.x <= -50) {
@@ -76,10 +76,10 @@ class Player {
                 this.update(this.x += 50);
                 break;
             case 'up':
-                this.update(this.y -= 60);
+                this.update(this.y -= 50);
                 break;
             case 'down':
-                this.update(this.y += 60);
+                this.update(this.y += 50);
                 break;
         }
     }
@@ -93,12 +93,6 @@ const enemy2 = new Enemy(30, 150, 200);
 const enemy3 = new Enemy(30, 250, 100);
 allEnemies.push(enemy1, enemy2, enemy3);
 const player = new Player(200, 400);
-
-//win the game
-if (player.y <= 0) {
-    showModal();
-    resetGame();
-}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -115,9 +109,11 @@ document.addEventListener('keyup', function(e) {
 
 function showModal() {
     modal.style.display = "block";
+    Enemy.constructor(x, y, 0);
 }
 
 function resetGame() {
+    if (player.y <= 30) showModal();
     player.x = 200;
     player.y = 400;
 }
