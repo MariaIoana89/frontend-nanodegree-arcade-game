@@ -1,3 +1,5 @@
+"use strict";
+
 const modal = document.querySelector('#modal');
 const closeBtn = document.querySelector('.closeBtn');
 // Enemies our player must avoid
@@ -7,8 +9,8 @@ class Enemy {
             // we've provided one for you to get started
             this.x = x;
             this.y = y;
-            this.height = 50;
-            this.width = 50;
+            this.height = 70;
+            this.width = 60;
             this.speed = speed;
             // The image/sprite for our enemies, this uses
             // a helper we've provided to easily load images
@@ -17,24 +19,24 @@ class Enemy {
         // Update the enemy's position, required method for game
         // Parameter: dt, a time delta between ticks
     update(dt) {
-        // You should multiply any movement by the dt parameter
-        // which will ensure the game runs at the same speed for
-        // all computers.
-        this.x += this.speed * dt;
-        if (this.x > 500) {
-            this.x = -100;
+            // You should multiply any movement by the dt parameter
+            // which will ensure the game runs at the same speed for
+            // all computers.
+            this.x += this.speed * dt;
+            if (this.x > 500) {
+                this.x = -100;
+            }
+            if (player.x < this.x + this.width &&
+                player.x + player.width > this.x &&
+                player.y < this.y + this.height &&
+                player.height + player.y > this.y) {
+                resetGame();
+            }
         }
-        if (player.x < this.x + this.width &&
-            player.x + player.width > this.x &&
-            player.y < this.y + this.height &&
-            player.height + player.y > this.y) {
-            resetGame();
-        }
-    };
-    // Draw the enemy on the screen, required method for game
+        // Draw the enemy on the screen, required method for game
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    };
+    }
 }
 
 // Now write your own player class
@@ -49,40 +51,31 @@ class Player {
         this.sprite = 'images/char-princess-girl.png';
     }
 
-    //update method
-    update() {
-            if (this.y <= -50) {
-                resetGame();
-            }
-            if (this.y >= 460) {
-
-                resetGame();
-            }
-            if (this.x >= 460 || this.x <= -50) {
-                resetGame();
-            }
-        }
-        //render method
+    //render method
     render() {
-            ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        }
-        //handleInput method
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+
+    //handleInput method
     handleInput(keypress) {
         switch (keypress) {
             case 'left':
-                this.update(this.x -= 50);
+                this.x -= 50;
                 break;
             case 'right':
-                this.update(this.x += 50);
+                this.x += 50;
                 break;
             case 'up':
-                this.update(this.y -= 50);
+                this.y -= 50;
                 break;
             case 'down':
-                this.update(this.y += 50);
+                this.y += 50;
                 break;
         }
+        if (this.y <= -50 || this.y >= 460 || this.x >= 460 || this.x <= -50) resetGame();
     }
+
+
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -109,11 +102,12 @@ document.addEventListener('keyup', function(e) {
 
 function showModal() {
     modal.style.display = "block";
-    Enemy.constructor(x, y, 0);
+    allEnemies.map(e => e.speed = 0);
+
 }
 
 function resetGame() {
-    if (player.y <= 30) showModal();
+    if (player.y <= 20) showModal();
     player.x = 200;
     player.y = 400;
 }
@@ -127,4 +121,4 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
