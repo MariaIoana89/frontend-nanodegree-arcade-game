@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const modal = document.querySelector('#modal');
 const closeBtn = document.querySelector('.closeBtn');
@@ -72,19 +72,13 @@ class Player {
                 this.y += 50;
                 break;
         }
-        if (this.y <= -50 || this.y >= 460 || this.x >= 460 || this.x <= -50) resetGame();
+        if (this.y <= -50 || this.y >= 460 || this.x >= 440 || this.x <= -50) resetGame();
     }
-
-
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [];
-const enemy1 = new Enemy(30, 50, 300);
-const enemy2 = new Enemy(30, 150, 200);
-const enemy3 = new Enemy(30, 250, 100);
-allEnemies.push(enemy1, enemy2, enemy3);
+const allEnemies = [new Enemy(30, 50, 300), new Enemy(30, 150, 200), new Enemy(30, 250, 100)];
 const player = new Player(200, 400);
 
 // This listens for key presses and sends the keys to your
@@ -101,7 +95,7 @@ document.addEventListener('keyup', function(e) {
 });
 
 function showModal() {
-    modal.style.display = "block";
+    modal.style.display = 'block';
     allEnemies.map(e => e.speed = 0);
 
 }
@@ -113,12 +107,12 @@ function resetGame() {
 }
 
 closeBtn.addEventListener('click', function() {
-    modal.style.display = "none";
+    modal.style.display = 'none';
 });
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.style.display = 'none';
     }
 };
